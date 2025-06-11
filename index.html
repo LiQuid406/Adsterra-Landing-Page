@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Win Free Gift Cards</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #111, #333);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 30px;
+      background: rgba(0,0,0,0.8);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.5);
+      text-align: center;
+      animation: fadeIn 1.5s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      font-size: 2em;
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    input[type="email"] {
+      padding: 12px;
+      width: 80%;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+    .submit-btn {
+      padding: 12px 25px;
+      background: #00ffff;
+      border: none;
+      border-radius: 10px;
+      color: #000;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .reviews {
+      margin-top: 40px;
+      text-align: left;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .review {
+      background: rgba(255,255,255,0.05);
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      font-size: 0.9em;
+    }
+    .name {
+      color: #00ffff;
+      font-weight: bold;
+    }
+    .amount {
+      color: #0f0;
+      font-weight: bold;
+    }
+    #loading {
+      display: none;
+      margin-top: 20px;
+    }
+    #chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #222;
+      padding: 15px;
+      border-radius: 15px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,255,255,0.4);
+      font-size: 0.9em;
+    }
+    #chatbot p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎁 Win 100% Free Gift Cards!</h1>
+  <p>Enter your Gmail to get a chance to win $5–$100 gift cards instantly.</p>
+  <input type="email" id="email" placeholder="Enter your Gmail..." />
+  <br>
+  <button class="submit-btn" onclick="handleSubmit()">Submit & Win</button>
+  <div id="loading">🔄 Checking eligibility, please wait...</div>
+
+  <div class="reviews" id="reviewBox">
+    <div class="review"><span class="name">Ali***</span> just received <span class="amount">$5</span> 🎉</div>
+    <div class="review"><span class="name">Mar***</span> got <span class="amount">$25</span> gift card 🤑</div>
+    <div class="review"><span class="name">Jen***</span> claimed <span class="amount">$100</span> 😍</div>
+    <div class="review"><span class="name">Dav***</span> won <span class="amount">$10</span> 🎈</div>
+    <div class="review"><span class="name">Tom***</span> got <span class="amount">$50</span> 🎁</div>
+    <div class="review"><span class="name">Zah***</span> claimed <span class="amount">$15</span> 💰</div>
+    <div class="review"><span class="name">Vic***</span> just received <span class="amount">$20</span> 🎊</div>
+  </div>
+</div>
+
+<div id="chatbot">
+  <p><strong>AI Helper 🤖:</strong></p>
+  <p>Hi there! Enter your Gmail and click submit to see if you're lucky today! 🎉</p>
+</div>
+
+<audio id="ding" src="https://www.soundjay.com/buttons/sounds/button-10.mp3" preload="auto"></audio>
+
+<script>
+  function handleSubmit() {
+    const email = document.getElementById("email").value;
+    if(email && email.includes("@gmail.com")) {
+      document.getElementById("loading").style.display = "block";
+      document.getElementById("ding").play();
+      alert("Success! You're being redirected to get your reward...");
+      setTimeout(() => {
+        window.location.href = "https://www.profitableratecpm.com/n4wv2v3q7z?key=d992a85b93c8a19e201fbe79368044cd";
+      }, 3000);
+    } else {
+      alert("Please enter a valid Gmail address.");
+    }
+  }
+</script>
+
+</body>
+</html>
